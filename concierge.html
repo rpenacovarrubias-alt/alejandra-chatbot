@@ -132,31 +132,42 @@
 </head>
 <body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
 <!-- Top Navigation Bar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
-<nav class="flex justify-between items-center px-gutter py-md max-w-7xl mx-auto">
-<div class="font-headline-md text-headline-md font-extrabold text-secondary tracking-tight">Alejandra Chat Bot</div>
-<div class="hidden md:flex items-center gap-xl">
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-lg text-label-lg cursor-pointer transition-colors duration-200" href="#">Agentes</a>
-<a class="text-on-surface-variant font-medium font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors duration-200" href="precios-img.html">Precios</a>
-<a class="text-on-surface-variant font-medium font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors duration-200" href="formulario.html">Integraciones</a>
-<div class="relative group">
-<button class="flex items-center gap-xs text-on-surface-variant font-medium font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors duration-200">
-<span class="material-symbols-outlined text-[18px]">language</span>
-<span>ES</span>
-<span class="material-symbols-outlined text-[16px]">expand_more</span>
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center w-full px-gutter py-md max-w-7xl mx-auto">
+<a href="/" class="font-headline-md text-headline-md font-bold text-on-surface">Alejandra</a>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-label-lg text-label-lg text-on-surface-variant font-semibold hover:text-primary transition-colors" href="/">Inicio</a>
+<a class="font-label-lg text-label-lg text-primary font-bold border-b-2 border-primary pb-1" href="concierge.html">Concierge</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant font-semibold hover:text-primary transition-colors" href="marketing.html">Marketing</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant font-semibold hover:text-primary transition-colors" href="reservaciones.html">Reservaciones</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant font-semibold hover:text-primary transition-colors" href="formulario.html">Formulario</a>
+</div>
+<div class="flex gap-md items-center">
+<a href="acceso.html" class="hidden md:block text-on-surface-variant font-label-lg hover:text-primary transition-all font-semibold">Ingresar</a>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-lg hover:scale-95 transition-all hidden md:block">Solicitar Demo</button>
+<button id="menu-toggle" class="md:hidden text-on-surface-variant hover:text-primary" aria-label="Abrir menú">
+<span class="material-symbols-outlined text-[28px]">menu</span>
 </button>
-<div class="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl border border-secondary/10 hidden group-hover:block overflow-hidden transition-all">
-<a class="block px-md py-sm hover:bg-secondary/5 text-label-lg text-on-surface transition-colors" href="#">English</a>
-<a class="block px-md py-sm bg-secondary/5 text-label-lg text-primary font-bold" href="#">Español</a>
 </div>
 </div>
-<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-lg text-label-lg font-bold cursor-pointer active:scale-95 transition-transform">Solicitar Demo</button>
+<div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-outline-variant px-gutter py-md flex flex-col gap-md">
+<a class="text-on-surface-variant hover:text-primary font-semibold font-label-lg" href="/">Inicio</a>
+<a class="text-primary font-bold font-label-lg" href="concierge.html">Concierge</a>
+<a class="text-on-surface-variant hover:text-primary font-semibold font-label-lg" href="marketing.html">Marketing</a>
+<a class="text-on-surface-variant hover:text-primary font-semibold font-label-lg" href="reservaciones.html">Reservaciones</a>
+<a class="text-on-surface-variant hover:text-primary font-semibold font-label-lg" href="formulario.html">Formulario</a>
+<hr class="border-outline-variant"/>
+<a href="acceso.html" class="text-on-surface-variant hover:text-primary font-semibold font-label-lg">Ingresar</a>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-lg w-full">Solicitar Demo</button>
 </div>
-<button class="md:hidden text-secondary">
-<span class="material-symbols-outlined">menu</span>
-</button>
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    var menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+    this.querySelector('.material-symbols-outlined').textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+  });
+</script>
 </nav>
-</header>
 <main class="pt-24">
 <!-- Hero Section -->
 <section class="relative px-gutter py-xl md:py-32 overflow-hidden">
