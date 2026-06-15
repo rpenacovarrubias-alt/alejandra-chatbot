@@ -1,0 +1,21 @@
+{
+  "name": "Alejandra Chat Bot",
+  "short_name": "Alejandra",
+  "description": "El asistente de IA más sofisticado del mundo para la industria de la hospitalidad moderna.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8F2",
+  "theme_color": "#F97316",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

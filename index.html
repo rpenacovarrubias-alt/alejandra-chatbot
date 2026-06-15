@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alejandra Chat Bot - Conserjería de Lujo con IA</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-container": "#70c7ff",
+                "secondary-fixed": "#c8e6ff",
+                "on-tertiary-fixed": "#001c3b",
+                "tertiary": "#465f86",
+                "on-secondary": "#ffffff",
+                "on-tertiary-container": "#173358",
+                "on-surface": "#201b13",
+                "primary-fixed-dim": "#ffb690",
+                "inverse-surface": "#353027",
+                "surface-container-low": "#fdf2e4",
+                "on-surface-variant": "#584237",
+                "secondary-fixed-dim": "#87ceff",
+                "primary-container": "#f97316",
+                "on-secondary-container": "#005276",
+                "surface-container": "#f7ecde",
+                "on-primary-fixed": "#341100",
+                "surface": "#fff8f2",
+                "surface-bright": "#fff8f2",
+                "background": "#fff8f2",
+                "outline": "#8c7164",
+                "primary": "#9d4300",
+                "outline-variant": "#e0c0b1",
+                "on-primary-container": "#582200",
+                "on-tertiary-fixed-variant": "#2d476d",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                "tertiary-fixed-dim": "#aec8f4",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-highest": "#ece1d3",
+                "on-primary": "#ffffff",
+                "secondary": "#006590",
+                "on-error-container": "#93000a",
+                "tertiary-fixed": "#d5e3ff",
+                "error-container": "#ffdad6",
+                "on-background": "#201b13",
+                "inverse-on-surface": "#faefe1",
+                "surface-variant": "#ece1d3",
+                "inverse-primary": "#ffb690",
+                "surface-dim": "#e3d9cb",
+                "primary-fixed": "#ffdbca",
+                "on-secondary-fixed": "#001e2e",
+                "surface-tint": "#9d4300",
+                "on-secondary-fixed-variant": "#004c6d",
+                "on-primary-fixed-variant": "#783200"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "sm": "12px",
+                "md": "16px",
+                "xs": "4px",
+                "gutter": "24px",
+                "base": "8px",
+                "margin-mobile": "16px",
+                "margin-desktop": "48px",
+                "xl": "32px",
+                "lg": "24px"
+            },
+            "fontFamily": {
+                "display-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "label-lg": ["Plus Jakarta Sans"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fff8f2;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(31, 58, 95, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #fff8f2 0%, #fdf2e4 100%);
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md docked full-width top-0 sticky shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-md max-w-7xl mx-auto z-50">
+<div class="font-display-lg text-headline-md font-bold text-on-surface dark:text-surface-bright">
+                Alejandra
+            </div>
+<div class="hidden md:flex gap-lg font-display-lg text-body-md font-label-lg items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Agentes</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="precios-img.html">Precios</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="formulario.html">Integraciones</a>
+</div>
+<div class="flex gap-md items-center">
+<div class="relative group hidden sm:block">
+<button class="flex items-center gap-xs text-on-surface-variant font-label-lg hover:text-primary transition-all">
+<span class="material-symbols-outlined text-[20px]">language</span>
+<span>ES</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="absolute right-0 top-full mt-xs bg-white shadow-xl rounded-lg py-xs w-24 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all border border-outline-variant">
+<a class="block px-md py-xs text-label-sm hover:bg-surface-container font-bold text-primary" href="#">Español</a>
+<a class="block px-md py-xs text-label-sm hover:bg-surface-container" href="#">English</a>
+</div>
+</div>
+<button class="hidden md:block text-on-surface-variant font-label-lg hover:text-primary transition-all duration-300">Ingresar</button>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-lg hover:scale-95 transition-all duration-150 ease-in-out">Solicitar Demo</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center pt-24 pb-12 hero-gradient overflow-hidden">
+<!-- Background Decorative Element -->
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3LQU4KmyGtnzRkHjyyAPOLvJc90kEtxIMi_h0q01UwU6THl6-FNqqS5CPdCi0ODnqNj3DS7ZclGI9zQPaeYh0EIRmyyWT2acFeFn_5OFVgMh0gz5J5aEKTdWkAkOMHOGLrFxSpSpOLgw5WYnkSbs9icbbrGAkaeDIM5ZFah76GKLB60FaObUZRwUm70xDs2H6si1HmcQurCZC21EFlEIW7y24BxLJq7KyJhHOqXSCESa7QCghX9byueM40ZT_sPiKhzp-_V9gUWM"/>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop w-full grid md:grid-cols-2 gap-xl items-center relative z-10">
+<div class="space-y-lg">
+<div class="inline-flex items-center gap-xs px-md py-xs bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-label-sm font-semibold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                        Excelencia en Hospitalidad con IA
+                    </div>
+<h1 class="font-display-lg text-display-lg text-on-surface">
+                        Alejandra: La mente digital de tu hotel
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Unifica la comunicación con tus viajeros y aumenta tus ingresos con IA y humanos trabajando juntos. El primer asistente de conserjería verdaderamente inteligente.
+                    </p>
+<div class="flex flex-wrap gap-md pt-md">
+<button class="bg-primary-container text-on-primary-container px-xl py-md rounded-lg font-label-lg text-body-md shadow-lg shadow-primary/20 hover:translate-y-[-2px] transition-all">
+                            Solicitar Demo
+                        </button>
+<button class="border-2 border-secondary text-secondary px-xl py-md rounded-lg font-label-lg text-body-md hover:bg-secondary/5 transition-all">
+                            Ver Características
+                        </button>
+</div>
+<div class="flex items-center gap-md pt-xl">
+<div class="flex -space-x-md">
+<img alt="Huésped satisfecho" class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPH5to2rnOP_tUX4KcfI9yuq7Cwigq9qhHWfu4JJqxaQFaUhO-zfyQtO3L9Pu-kmVOO81m7v0ol4hbdKz3A9I_oOAYlKu_OMNfqtRZgmhisQoGEkd0lNrZIZkqxVcdDjg4hCJj43XmVvgL2T2TlpgdbsvGGUcdxTkgt4iTC8fwjBZK_SUi_bCatC3JpCx6cz0HF2ebHVzGcn0dyYhN1GMhZ3HkuiunT4uAyGnl2tRqAgSqE5n3W9-WFkd3xbiTXlOPZzJHHmao45o"/>
+<img alt="Gerente de hotel" class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiTF9viY7K7srDf-lJXswj6ndO-4WQxO1NVk19rjTF6RhWqaHTdEpGzvuEJ2Ev6nHgLqZgv4Vtv2oOvmNf2g8wCx1uNxDn4tu41wsA93R01Sh_vElHTnOWriWl7T-ARLTRqrzQpE1mmTPLx-MqJQS-20VpAuLLjJOOA4uil-4mip91P-Xs8VB_-bkQq2vmrCXmEVJx8B-H77AKvWLGybuE6U-_NxjDZ6pdM9UKnYrD96xfuh0WhrCFbej4qG2eV5iWTgdSRAlu1UQ"/>
+<img alt="Viajero feliz" class="w-10 h-10 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbHpljQIFQQhxl1J8_PwHZ7CrtlvTvkOtCmjL9nP8SHVkqnTIaLVEa8TCzkk-fj3orpZFhpwBs4hRFR-XX84aGmJwWw0dJERbbzMaBYDCtgh2TCP984-v7Q6fPV7ACMpgGdZqmKA4kfXOGLwvIc-fveAOlvdL2PfxMvWv5Yd4iH2E4Y3C5KTpUJqn5ujIDfRJl8bf0Zw5nfBjmu6pcEFXi35q4e_eY5zl13c2fu08A-1gwtH6zD5751TK1sf9oXIl0rBBPapWyfTI"/>
+</div>
+<p class="text-label-sm text-on-surface-variant">
+<span class="font-bold text-primary">+500 Hoteles</span> ya confían en Alejandra
+                        </p>
+</div>
+</div>
+<div class="relative">
+<!-- Conceptual Floating Image -->
+<div class="relative z-20 rounded-3xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+<img alt="Ecosistema digital de Alejandra" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALtPeoU02vof0XpEvzCOipEtaZ4IjhAiJbq-R8o9Q62wt-jof9vzIBGmIyMVNXLwTeM6Aw1yBCA00wj-MvPADNA1O1EKN8Y_35A75D6JCwsqHgBvw3JHCdNKNawYt7nNUj0CaHbr62EJz_8T2bWNGdUkH9Tov7Gmo1flkNeORKR7K2rSZb-OZh4L5OsxauJYUfaO9l1qR1hNVOBFgdOCOe1GcPv8XR6B-nt2g5xrHxDDUxiXerGSw0HHwOCuI8K3nuBvV2fZ-MHuE"/>
+</div>
+<!-- Assistant Alejandra Image Prominent -->
+<div class="absolute -bottom-10 -left-10 z-30 w-64 glass-card p-4 rounded-2xl shadow-xl transform -rotate-3">
+<img alt="Retrato de Alejandra" class="w-full h-48 object-cover rounded-xl mb-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs7R_Tju7_PithSAG0LZD3jL7iTRkGfh0piC0aPq7bnrIlqU4YAPv3nQORH7IrD-ISWsOeJMNIbheYcBOHUKGZCE1JOBm4XNHoucF5QojGB9r9DT__WNgw6Ejz40yYEjVnD3wjq47zGjrc1uB0NvDk9zJ6RYJncI72ovU5V-bYQPRUCxNA19_uOeG3rYDfspLXk6pgwBSi4Yc2OuHbf2sPbaplhA5kXgCtiUyYdCTPQB5uIJB1TIBkX0V727uXJhomEYeBXN2VIAk"/>
+<div class="text-center">
+<h3 class="font-bold text-on-surface">Alejandra</h3>
+<p class="text-label-sm text-secondary font-semibold">Conserje Digital Principal</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- One AI Ecosystem Section -->
+<section class="py-xl bg-surface">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="text-center mb-xl">
+<h2 class="font-display-lg text-headline-lg text-on-surface mb-md">Ecosistema Único de IA</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                        Una plataforma integral para gestionar todo el ciclo de vida del huésped, desde la captación hasta la fidelización.
+                    </p>
+</div>
+<div class="grid md:grid-cols-3 gap-lg">
+<!-- Marketing Agent -->
+<div class="glass-card p-xl rounded-3xl hover:shadow-2xl transition-all group border-t-4 border-t-primary-container">
+<div class="w-16 h-16 bg-primary-fixed rounded-2xl flex items-center justify-center mb-lg text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">campaign</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-on-surface mb-md">Agente de Marketing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+                            Automatiza campañas omnicanal y captura prospectos de alta calidad en WhatsApp e Instagram de forma proactiva.
+                        </p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm text-label-lg text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                                Chatbots de Ventas 24/7
+                            </li>
+<li class="flex items-center gap-sm text-label-lg text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                                Segmentación Inteligente
+                            </li>
+</ul>
+</div>
+<!-- Concierge Agent -->
+<div class="glass-card p-xl rounded-3xl hover:shadow-2xl transition-all group border-t-4 border-t-secondary">
+<div class="w-16 h-16 bg-secondary-fixed rounded-2xl flex items-center justify-center mb-lg text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">concierge</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-on-surface mb-md">Agente de Conserjería</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+                            Atiende solicitudes en tiempo real, desde pedidos de servicio a la habitación hasta reservas de spa, sin esperas.
+                        </p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm text-label-lg text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                                Gestión de Room Service
+                            </li>
+<li class="flex items-center gap-sm text-label-lg text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+                                Recomendaciones Locales
+                            </li>
+</ul>
+</div>
+<!-- Reservations Agent -->
+<div class="glass-card p-xl rounded-3xl hover:shadow-2xl transition-all group border-t-4 border-t-tertiary">
+<div class="w-16 h-16 bg-tertiary-fixed rounded-2xl flex items-center justify-center mb-lg text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">book_online</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-on-surface mb-md">Agente de Reservas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+                            Convierte consultas en reservas directas integrándose con tu motor actual para maximizar el retorno de inversión.
+                        </p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm text-label-lg text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                                Pagos Seguros Integrados
+                            </li>
+<li class="flex items-center gap-sm text-label-lg text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+                                Disponibilidad en Tiempo Real
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Layout Highlight Section -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-margin-desktop">
+<div class="grid md:grid-cols-12 gap-lg h-auto md:h-[600px]">
+<div class="md:col-span-8 bg-white rounded-3xl p-xl shadow-lg relative overflow-hidden flex flex-col justify-between">
+<div>
+<h2 class="font-display-lg text-headline-lg text-on-surface mb-md">Gestión Unificada 360°</h2>
+<p class="text-body-md text-on-surface-variant max-w-md">Contesta mensajes de todas las plataformas desde un solo panel inteligente potenciado por IA.</p>
+</div>
+<div class="mt-xl flex justify-center">
+<div class="relative w-full max-w-lg aspect-video bg-surface-container rounded-2xl overflow-hidden border border-outline-variant">
+<img alt="Dashboard de gestión hotelera" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDIelLrIBDS9gMbER0_ny0plG-T3thj3HhZp-q0WdyxRsBzj9nAEDh32LWBIYjGV4_ykkn0mzX2KKB7JhTgWc3i_rKvNJnnZJ8Rdwdxs8S5BBwA415t-Zgl6ijJy1Pcnw30iSCZgqQ6DPwHjeOYBd6xs8Ws0Qa1P-zUvvJN7tTtCc7OSxifgvEzrkozJ67R-1XAZjS-bF9khxKEaCAO1nco1IdXDeOPB0Ex9kyuhQUEZkJ7OAJcmIeimCsanekMlJ_QoiuUMIwQVo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent"></div>
+<div class="absolute bottom-md left-md right-md flex justify-between items-center bg-white/90 backdrop-blur p-md rounded-xl shadow-sm">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-label-sm font-bold text-on-surface">Sistema Activo</span>
+</div>
+<div class="text-label-sm text-primary font-bold">1.2k chats hoy</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 grid grid-rows-2 gap-lg">
+<div class="bg-secondary text-white rounded-3xl p-lg flex flex-col justify-center">
+<div class="text-display-lg font-bold mb-xs">98%</div>
+<div class="text-label-lg font-semibold uppercase tracking-widest opacity-80">Precisión de IA</div>
+<p class="text-body-md mt-sm">Respuestas automáticas que se sienten naturales y resuelven dudas complejas.</p>
+</div>
+<div class="bg-primary-container text-white rounded-3xl p-lg flex flex-col justify-center">
+<div class="text-display-lg font-bold mb-xs">3x</div>
+<div class="text-label-lg font-semibold uppercase tracking-widest opacity-80">Tasa de Conversión</div>
+<p class="text-body-md mt-sm">Triplica tus reservas directas eliminando las esperas en el proceso de compra.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-lg px-margin-desktop py-xl max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-1 space-y-md">
+<div class="font-display-lg text-headline-md font-bold text-on-surface dark:text-surface-bright">
+                    Alejandra
+                </div>
+<p class="font-body-md text-label-sm text-on-surface-variant max-w-xs">
+                    Servicios de Conserjería de Lujo con IA. Revolucionando la hospitalidad con inteligencia artificial de vanguardia.
+                </p>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-lg text-on-surface font-bold uppercase">Enlaces Rápidos</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-body-md text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">Redes Sociales</a>
+<a class="font-body-md text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">Servicios</a>
+<a class="font-body-md text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">Nuestros Productos</a>
+</nav>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-lg text-on-surface font-bold uppercase">Experiencia</h4>
+<nav class="flex flex-col gap-xs">
+<a class="font-body-md text-label-sm text-primary underline transition-all duration-200" href="#">Activar Demo</a>
+<a class="font-body-md text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="formulario.html">Integraciones</a>
+<a class="font-body-md text-label-sm text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all duration-200" href="#">Política de Privacidad</a>
+</nav>
+</div>
+<div class="space-y-sm">
+<h4 class="font-label-lg text-on-surface font-bold uppercase">Suscripción</h4>
+<div class="relative">
+<input class="w-full bg-surface py-sm px-md rounded-lg border-outline-variant focus:border-primary focus:ring-0 transition-colors" placeholder="Tu email" type="email"/>
+<button class="absolute right-xs top-xs bottom-xs px-md bg-secondary text-white rounded-md hover:bg-secondary/90 transition-colors">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-margin-desktop py-md border-t border-outline-variant text-center">
+<p class="font-body-md text-label-sm text-on-surface-variant opacity-70">
+                © 2024 Alejandra Chat Bot. Servicios de Conserjería de Lujo con IA.
+            </p>
+</div>
+</footer>
+<!-- FAB for direct contact -->
+<div class="fixed bottom-lg right-lg z-50">
+<button class="w-14 h-14 bg-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-[28px]">chat_bubble</span>
+<span class="absolute right-full mr-md py-xs px-md bg-white text-on-surface shadow-md rounded-lg text-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                Chatea con Alejandra
+            </span>
+</button>
+</div>
+</body></html>

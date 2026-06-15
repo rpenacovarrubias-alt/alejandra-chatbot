@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Iniciar Sesión | Alejandra Chat Bot</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001c3b",
+                    "surface-variant": "#ece1d3",
+                    "surface-container-low": "#fdf2e4",
+                    "on-secondary-fixed-variant": "#004c6d",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#c8e6ff",
+                    "on-secondary-container": "#005276",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#ffdbca",
+                    "on-tertiary-container": "#173358",
+                    "tertiary-container": "#829cc6",
+                    "secondary-fixed-dim": "#87ceff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#353027",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fff8f2",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#f7ecde",
+                    "on-background": "#201b13",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#201b13",
+                    "surface-container-high": "#f1e7d9",
+                    "secondary": "#006590",
+                    "on-surface-variant": "#584237",
+                    "inverse-primary": "#ffb690",
+                    "on-secondary-fixed": "#001e2e",
+                    "on-primary-fixed-variant": "#783200",
+                    "surface-tint": "#9d4300",
+                    "on-primary-fixed": "#341100",
+                    "tertiary": "#465f86",
+                    "outline-variant": "#e0c0b1",
+                    "surface-container-highest": "#ece1d3",
+                    "secondary-container": "#70c7ff",
+                    "inverse-on-surface": "#faefe1",
+                    "background": "#fff8f2",
+                    "surface-bright": "#fff8f2",
+                    "tertiary-fixed-dim": "#aec8f4",
+                    "on-tertiary-fixed-variant": "#2d476d",
+                    "on-primary-container": "#582200",
+                    "tertiary-fixed": "#d5e3ff",
+                    "primary-fixed-dim": "#ffb690",
+                    "on-primary": "#ffffff",
+                    "primary": "#9d4300",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#e3d9cb",
+                    "primary-container": "#f97316",
+                    "outline": "#8c7164"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "base": "8px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "sm": "12px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- Main Content Canvas -->
+<main class="min-h-screen flex flex-col md:flex-row relative overflow-hidden">
+<!-- Language Selector Floating -->
+<div class="absolute top-md right-md z-50">
+<div class="relative inline-block text-left group">
+<button class="flex items-center gap-xs bg-surface/80 backdrop-blur-md px-md py-sm rounded-full border border-outline-variant shadow-sm hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">language</span>
+<span class="font-label-lg">Español</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="absolute right-0 mt-xs w-40 origin-top-right rounded-xl bg-surface border border-outline-variant shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+<div class="py-xs">
+<a class="flex items-center px-md py-sm hover:bg-surface-container transition-colors" href="#">
+<span class="font-label-lg text-on-surface">English</span>
+</a>
+<a class="flex items-center px-md py-sm bg-surface-container-low text-primary" href="#">
+<span class="font-label-lg font-bold">Español</span>
+<span class="material-symbols-outlined ml-auto text-[18px]">check</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Left Side: Login Form -->
+<div class="w-full md:w-1/2 flex items-center justify-center p-gutter z-10">
+<div class="max-w-md w-full space-y-xl">
+<!-- Branding -->
+<div class="flex flex-col gap-base">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hotel_class</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-secondary tracking-tight">Alejandra Chat Bot</h1>
+</div>
+<div class="mt-md">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Bienvenido de Nuevo</h2>
+<p class="font-body-md text-on-surface-variant mt-xs">Acceda a su portal de gestión de conserjería de alto nivel.</p>
+</div>
+</div>
+<!-- Form -->
+<form action="#" class="space-y-lg" onsubmit="event.preventDefault();">
+<div class="space-y-md">
+<!-- Email Field -->
+<div class="space-y-xs">
+<label class="font-label-lg text-label-lg text-on-surface" for="email">Correo de Gestión</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-50 group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 outline-none transition-all font-body-md text-on-surface rounded-t-lg" id="email" placeholder="gerente@hoteldelujo.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-lg text-label-lg text-on-surface" for="password">Contraseña</label>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#">¿Olvidó su contraseña?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-50 group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 outline-none transition-all font-body-md text-on-surface rounded-t-lg" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="space-y-md pt-md">
+<button class="w-full bg-primary-container text-white py-4 px-lg rounded-lg font-label-lg text-label-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-200" type="submit">
+                        Ingresar al Portal
+                    </button>
+<div class="relative py-md">
+<div class="absolute inset-0 flex items-center"><div class="w-full border-t border-outline-variant"></div></div>
+<div class="relative flex justify-center text-label-sm uppercase tracking-widest"><span class="bg-surface px-md text-on-surface-variant opacity-60">o acceda con</span></div>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<button class="flex items-center justify-center gap-sm py-3 px-md border border-outline-variant rounded-lg font-label-lg text-on-surface hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">google</span>
+                            SSO
+                        </button>
+<button class="flex items-center justify-center gap-sm py-3 px-md border border-outline-variant rounded-lg font-label-lg text-on-surface hover:bg-surface-container-low transition-colors active:scale-95">
+<span class="material-symbols-outlined text-secondary">domain</span>
+                            Corporativo
+                        </button>
+</div>
+</div>
+</form>
+<!-- Footer Link -->
+<div class="text-center pt-xl">
+<p class="font-body-md text-on-surface-variant">
+                    ¿No tiene una cuenta? 
+                    <a class="text-primary font-bold hover:underline" href="#">Solicitar Acceso</a>
+</p>
+</div>
+</div>
+</div>
+<!-- Right Side: Visual & Brand Hero -->
+<div class="hidden md:block md:w-1/2 relative bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 flex flex-col items-center justify-end p-margin-desktop">
+<!-- Large Image of Alejandra -->
+<div class="relative w-full h-[870px] rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Alejandra Concierge" class="w-full h-full object-cover object-center" data-alt="A professional and friendly female hotel concierge standing at a luxury marble desk, wearing a tailored navy blazer and a vibrant patterned silk scarf. She is smiling warmly at the camera, holding a small notepad and pen as if ready to assist. The background is a soft-focus, high-end hotel lobby with warm ambient lighting and golden accents, embodying a premium 5-star hospitality atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAvVR70UHOcq02hN4QRU9T8tnO9uY_FDLip4wSXo9uFfaP6XlmtdtWD5WyJpz2wNzP9RJYp3XwgKd_UF7kvJGI3mn76-RD6uFuwcAaRw9hnJarSOJCfAcgAqkiZEwETOcUPfVrD3U9knhHokie8EhIgTe-9_yCeyftW0e6GSLmO-PVbQKsfsMCC_-Kd34TkpxxGF8dJMTUvvI90k_5tntOgYD34LGWj8JdIY8jBVmPbjN8egoVWyYREiVJIrkARlPbk6pFJqW7D70"/>
+<!-- Content Overlays -->
+<div class="absolute bottom-0 left-0 right-0 p-lg bg-gradient-to-t from-secondary/80 to-transparent backdrop-blur-[2px]">
+<div class="glass-card p-xl rounded-xl border border-white/20 shadow-xl max-w-sm ml-auto">
+<div class="flex items-center gap-sm mb-md">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary-container border-2 border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary border-2 border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px]">chat</span>
+</div>
+</div>
+<span class="font-label-lg text-secondary">Servicio habilitado por IA</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Excelencia Profesional</h3>
+<p class="font-body-md text-on-surface-variant">Alejandra combina la calidez humana con la velocidad de la inteligencia de conserjería basada en datos.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Tech Accents -->
+<div class="absolute top-10 left-10 p-md glass-card rounded-lg border border-white/30 shadow-md flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-success/20 flex items-center justify-center text-green-600 animate-pulse">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Estado del Sistema</div>
+<div class="font-label-lg text-on-surface">Conserjería en Línea</div>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 -translate-y-1/2 left-0 w-32 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.01]');
+                input.parentElement.parentElement.classList.add('transition-transform');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    });
+</script>
+</body></html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alejandra Chat Bot | El Futuro del Conserje Digital</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(31, 58, 95, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #1F3A5F 0%, #9d4300 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-blob {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(112, 199, 255, 0.2) 0%, rgba(255, 248, 242, 0) 70%);
+            filter: blur(60px);
+            z-index: -1;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001c3b",
+                    "surface-variant": "#ece1d3",
+                    "surface-container-low": "#fdf2e4",
+                    "on-secondary-fixed-variant": "#004c6d",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#c8e6ff",
+                    "on-secondary-container": "#005276",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#ffdbca",
+                    "on-tertiary-container": "#173358",
+                    "tertiary-container": "#829cc6",
+                    "secondary-fixed-dim": "#87ceff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#353027",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fff8f2",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#f7ecde",
+                    "on-background": "#201b13",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#201b13",
+                    "surface-container-high": "#f1e7d9",
+                    "secondary": "#006590",
+                    "on-surface-variant": "#584237",
+                    "inverse-primary": "#ffb690",
+                    "on-secondary-fixed": "#001e2e",
+                    "on-primary-fixed-variant": "#783200",
+                    "surface-tint": "#9d4300",
+                    "on-primary-fixed": "#341100",
+                    "tertiary": "#465f86",
+                    "outline-variant": "#e0c0b1",
+                    "surface-container-highest": "#ece1d3",
+                    "secondary-container": "#70c7ff",
+                    "inverse-on-surface": "#faefe1",
+                    "background": "#fff8f2",
+                    "surface-bright": "#fff8f2",
+                    "tertiary-fixed-dim": "#aec8f4",
+                    "on-tertiary-fixed-variant": "#2d476d",
+                    "on-primary-container": "#582200",
+                    "tertiary-fixed": "#d5e3ff",
+                    "primary-fixed-dim": "#ffb690",
+                    "on-primary": "#ffffff",
+                    "primary": "#9d4300",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#e3d9cb",
+                    "primary-container": "#f97316",
+                    "outline": "#8c7164"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "xs": "4px",
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "base": "8px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "sm": "12px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center px-gutter py-md max-w-7xl mx-auto">
+<div class="font-headline-md text-headline-md font-extrabold text-secondary tracking-tight">Alejandra Chat Bot</div>
+<div class="hidden md:flex items-center gap-xl">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-lg text-label-lg cursor-pointer transition-colors duration-200" href="#">Agentes</a>
+<a class="text-on-surface-variant font-medium font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors duration-200" href="precios-img.html">Precios</a>
+<a class="text-on-surface-variant font-medium font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors duration-200" href="formulario.html">Integraciones</a>
+<div class="relative group">
+<button class="flex items-center gap-xs text-on-surface-variant font-medium font-label-lg text-label-lg cursor-pointer hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined text-[18px]">language</span>
+<span>ES</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<div class="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-xl border border-secondary/10 hidden group-hover:block overflow-hidden transition-all">
+<a class="block px-md py-sm hover:bg-secondary/5 text-label-lg text-on-surface transition-colors" href="#">English</a>
+<a class="block px-md py-sm bg-secondary/5 text-label-lg text-primary font-bold" href="#">Español</a>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-lg text-label-lg font-bold cursor-pointer active:scale-95 transition-transform">Solicitar Demo</button>
+</div>
+<button class="md:hidden text-secondary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative px-gutter py-xl md:py-32 overflow-hidden">
+<div class="hero-blob top-0 left-0"></div>
+<div class="hero-blob bottom-0 right-0 opacity-50"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+<div class="space-y-lg z-10">
+<div class="inline-flex items-center gap-xs px-sm py-xs bg-secondary-fixed text-on-secondary-fixed-variant rounded-full font-label-sm text-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+                        Hospitalidad AI de 5 Estrellas
+                    </div>
+<h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[1.1] text-gradient">
+                        Eleve la Satisfacción de sus Huéspedes con Alejandra.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Conozca a Alejandra, la conserje digital de alta gama que combina la calidez de la hospitalidad profesional con la eficiencia de la IA avanzada. Automatice servicios, informes y solicitudes al instante.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md pt-md">
+<button class="bg-primary-container text-white px-xl py-md rounded-lg font-headline-md text-headline-md shadow-lg hover:shadow-primary/20 transition-all cursor-pointer active:scale-95">
+                            Probar la Demo
+                        </button>
+<button class="border-2 border-secondary text-secondary px-xl py-md rounded-lg font-headline-md text-headline-md hover:bg-secondary/5 transition-all cursor-pointer">
+                            Casos de Éxito
+                        </button>
+</div>
+<div class="flex items-center gap-md pt-lg">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a smiling female hotel guest in a sunlit lobby, representing the satisfied users of the Alejandra digital concierge service. The photo is clean and high-key, aligning with a luxury hospitality aesthetic with soft warm lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq_zAr1u6JpBRzP_12L3NngSZ3CFHQtFeMQ4SrPq1rDGugwEBeA33sPE7aKPMFPlZyY1OwWLmElNm0UleqsNXfNxbBLDiq_zTXo0pDIFALcMvvwzOX2t3D169N6Y0X8mfRtmR41y2XEBOXebQdDtGdduNEXEHFFG7WxnLXhTODfqBsYy-jJqJhGb6SmsmJy9r4Wfb6g2LIVNL9D7tPLV8hTHSnIWKFTgjVauI-sBLfMldaHT3F21d_8Nd3R1P2rso5JJG17kMfYi0"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged male traveler in a modern suit, smiling confidently. The background is a blurred luxury hotel interior with deep navy and cream tones, reflecting the high-end corporate concierge environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyPGIB8KL-2w5oyhgnF1VToozSGdDpKJ08zad727rUhtF8WM0Rp1J0QFtIkBlhikxUHp1evkpj2v1On2bueIAS4TZMS3d-YRqDw473mBX3u0sUB4ZMoNy21N99GVZbyUPcxSOPuCEdqhBQxWjknS0y0PmdZsDD5eCn7SSWbozPxsJ7DnFDBOIxEdypAgQpDUbvVMzZfWpkK8Jz-XHtuY_wmmbCqcqz9HaPtJCN9TyGWOvZpADemN4fhHlEF_ezXwBf_K1tLe2bSQE"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a diverse female professional in a bright, modern office space. The lighting is natural and soft, creating an inviting and trustworthy vibe for a high-tech hospitality assistant service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMqWMlHG3rEeDEDpuQq5LBBS3zF7C7p-NOIki247Jy8gQ5I4OY-yP6La6M3jWIezYmwAxeEVW7ofg5e4WQ9prleUTwfBXKysMxkddnCl12wjmEXocpA6nTMl4boo7XDP8s17-xC0zRFbwVNKITJAfbFEt6awZsEGMPEK1Metph1dCgKjRnxd-50FzmzcZsi5CA9cFne1wPtxPvEvBhMTApopo3ERETIoioVchwtpSskUBqc5OcdXJz0kNn0xDKTjm9tX7XF6325xU"/>
+</div>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Con la confianza de más de 200 hoteles de lujo en el mundo</p>
+</div>
+</div>
+<div class="relative z-10">
+<div class="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A high-resolution image of a professional female concierge named Alejandra, wearing a navy blue blazer and a decorative scarf, standing behind a marble hotel reception desk. She is smiling warmly while holding a digital tablet. Overlaid on the image are glowing, semi-transparent holographic UI elements showing chat messages and room service options, blending high-tech AI with luxury service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjed5vlEX_qbt7_QvH7W8XPS8klIAvkWvSBDgbesEvmL0U7DMiXN52k3CYLpEyS5PHEhPVb0YIM6IiMTp_jIpGYuZkkdMCIOqGXEbPCKQixEg2CUqtL-CX8HdxX5aBAPLE8MLLwuFyMnVJxafGhCghsInMm9PpY0tjXSwoXshu6CLmiS0-Peu9RoXPrUSgEeb4WyzHguxlmj70HI_aqif0BImWMLjU_48wNcjEoeuqV_iti2LrAAaxlYVqrOByMMUIN8vwFvm4xPA"/>
+<!-- Floating Glass Cards -->
+<div class="absolute top-8 right-8 glass-panel p-md rounded-xl shadow-xl animate-bounce-slow">
+<div class="flex items-center gap-md">
+<div class="bg-primary-container/20 p-xs rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">room_service</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Servicio de Habitaciones</p>
+<p class="font-label-lg text-label-lg font-bold">Nueva Solicitud: Suite 402</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="px-gutter py-xl bg-surface-container-low">
+<div class="max-w-7xl mx-auto space-y-xl">
+<div class="text-center space-y-md max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-secondary">Una Suite Completa de Servicios al Huésped</h2>
+<p class="text-on-surface-variant font-body-lg">Alejandra no es solo un chatbot; es un motor operativo diseñado para optimizar cada aspecto de la experiencia del huésped.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Room Service Automation -->
+<div class="md:col-span-8 glass-panel p-xl rounded-[24px] flex flex-col justify-between hover:border-primary/30 transition-all group">
+<div class="space-y-md">
+<div class="w-12 h-12 bg-secondary-fixed flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Automatización de Room Service</h3>
+<p class="text-on-surface-variant max-w-md font-body-md">Permita que los huéspedes exploren menús y realicen pedidos a través de una interfaz conversacional fluida. Integración directa con el TPV de su cocina.</p>
+</div>
+<div class="mt-xl h-48 bg-surface-container rounded-xl relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A premium close-up shot of a gourmet breakfast spread in a luxury hotel room, featuring freshly baked pastries and coffee on a silver tray. The lighting is soft morning sunlight, emphasizing a refined and high-end dining experience managed by an AI concierge." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArUjxk29XFym8dpBHSYW9FpOHS0EAc91H4O_ELrDr4L4zKYUKOxseadWQ3UsKONGbgM5NJl4_a48sh3mMke8-fLrhihgD3pLq0lvRQg-74PS8Q2MAnnlHP_MDDTjsvGMVphRw3ocXMmz97-MdYp55uWE1cR19dfjPmnDGjtyn-sjoK3KDKxMOfidjwnV6kdTusJ97BCnXguricPjLOtbLCeOcldpqNMvqRrPYlMeVneRENYZVL1QFKlW0Ddwz6sK_CPKF2DxvNxaQ"/>
+<div class="absolute bottom-4 left-4 glass-panel px-md py-sm rounded-lg border-white/50">
+<span class="text-label-lg font-bold text-secondary">"Me gustaría un desayuno continental para dos."</span>
+</div>
+</div>
+</div>
+<!-- Amenity Requests -->
+<div class="md:col-span-4 bg-tertiary-container/30 p-xl rounded-[24px] flex flex-col space-y-md border border-tertiary/10">
+<div class="w-12 h-12 bg-tertiary-fixed flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" style="font-variation-settings: 'FILL' 1;">bedroom_parent</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-tertiary-container">Gestión de Amenidades</h3>
+<p class="text-on-tertiary-fixed-variant font-body-md">Toallas extra, almohadas de plumas o solicitudes de late check-out se gestionan en segundos, notificando al personal de limpieza automáticamente.</p>
+<div class="pt-md grid grid-cols-2 gap-sm">
+<div class="bg-white/50 p-sm rounded-lg text-center border border-tertiary/5">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<p class="text-label-sm font-bold">Toallas</p>
+</div>
+<div class="bg-white/50 p-sm rounded-lg text-center border border-tertiary/5">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<p class="text-label-sm font-bold">Aseo</p>
+</div>
+</div>
+</div>
+<!-- Local Recs -->
+<div class="md:col-span-4 glass-panel p-xl rounded-[24px] flex flex-col space-y-md">
+<div class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-xl">
+<span class="material-symbols-outlined text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">explore</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Conserje Local</h3>
+<p class="text-on-surface-variant font-body-md">Recomendaciones personalizadas de restaurantes, entretenimiento y puntos de interés adaptadas a las preferencias del huésped.</p>
+<div class="mt-auto pt-md">
+<img class="w-full h-32 object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-500" data-alt="A beautiful, vibrant city landscape at dusk, featuring glowing streetlights and modern architecture. The image reflects the local expertise and recommendations provided by the Alejandra AI concierge to hotel guests exploring the city." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsgmQbZ1ttXcurf7TH6oVvwx9JdKpHRJYeDEgfd5gUUbrbaez25xZvUqJXqbXp0Z0Z12aMIHkCscCGGa157KmXEsZQ_YoChzeyl21S_ocPQmEt75VqkPXthfak7NCVgpyAEdtoTrgSgsIHWlojdUL0t96QPscfS8pOreHew2aJnZasOw0Cxfo83DBx9lwMHbmBa3CGwt-KUhedNVOSrnXbMCDd94_rHXL9govbJ9abKNhz5krssepujT5-xVMpwgHl5AADsxhaZPw"/>
+</div>
+</div>
+<!-- Maintenance Reporting -->
+<div class="md:col-span-8 bg-inverse-surface text-inverse-on-surface p-xl rounded-[24px] flex items-center gap-xl relative overflow-hidden group">
+<div class="space-y-md relative z-10 md:w-1/2">
+<div class="w-12 h-12 bg-primary-container flex items-center justify-center rounded-xl shadow-lg">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">build</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Reporte de Incidencias Instantáneo</h3>
+<p class="text-surface-variant font-body-md">Los huéspedes pueden informar problemas con el aire acondicionado, grifos que gotean o iluminación. Los avisos se envían al instante a los paneles del equipo de mantenimiento.</p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm text-label-lg font-bold"><span class="material-symbols-outlined text-primary-container">speed</span> Reduce el tiempo de respuesta un 40%</li>
+<li class="flex items-center gap-sm text-label-lg font-bold"><span class="material-symbols-outlined text-primary-container">insights</span> Seguimiento de la eficiencia del personal</li>
+</ul>
+</div>
+<div class="hidden md:block w-1/2 h-full absolute right-0 top-0">
+<img class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity" data-alt="A technical maintenance worker using a digital tablet to manage tasks in a clean, modern facility. The lighting is crisp and cool, representing the operational efficiency and automated ticketing system of the Alejandra AI concierge service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlvoBw49AhuCPmDC8fQ--9FI2Eh92Hgb5owiqv_yID7KWfbMBIdYZJrGffhzuhjnlhpVziUn4IPJuVxfoZMPgkARtzPLYtYMEVpxUaeGxE_mNfD0nmE2g2ZjlBRs41zvMmxxeONvq5AYRiXIF3gtU0-0Kr1kyQr09PhP_y2pJY-8ig59kWLe2FQ6h_BR7NDRvHgSvJOSGvmXTJaluANHj7KlJdez5UEGxfRRjncTqYxIjgJlWnfy3JbcXwnjqQTUZn2TyL65ZbzT8"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Conversational Showcase -->
+<section class="px-gutter py-xl md:py-32 bg-surface">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-xl">
+<div class="w-full md:w-1/2 space-y-lg">
+<h2 class="font-headline-lg text-headline-lg text-secondary">El Toque "Humano" en Cada Byte</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Alejandra utiliza procesamiento de lenguaje natural para entender solicitudes complejas, sarcasmo y tono, asegurando que cada interacción se sienta tan profesional como una reunión cara a cara en el mostrador de conserjería.</p>
+<div class="space-y-md">
+<div class="flex items-start gap-md">
+<div class="bg-secondary-container/20 p-sm rounded-full">
+<span class="material-symbols-outlined text-secondary">translate</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-bold">Soporte Multilingüe</h4>
+<p class="font-body-md text-on-surface-variant">Comuníquese con sus huéspedes en más de 45 idiomas con fluidez.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<div class="bg-secondary-container/20 p-sm rounded-full">
+<span class="material-symbols-outlined text-secondary">schedule</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-bold">Disponibilidad 24/7</h4>
+<p class="font-body-md text-on-surface-variant">Nunca pierda una solicitud, ya sea a las 3 AM o en el pico de la tarde.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 max-w-[500px]">
+<div class="bg-white rounded-[32px] shadow-2xl border border-secondary/10 overflow-hidden">
+<div class="bg-secondary p-lg text-white flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">face_retouching_natural</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg font-bold">Alejandra</p>
+<p class="text-[10px] uppercase tracking-widest opacity-80">En línea • Conserje Digital</p>
+</div>
+</div>
+<span class="material-symbols-outlined">more_vert</span>
+</div>
+<div class="p-lg space-y-lg h-[400px] overflow-y-auto bg-sky-50/20">
+<!-- User Message -->
+<div class="flex justify-end">
+<div class="bg-secondary text-white p-md rounded-[16px] rounded-br-[4px] max-w-[80%] font-body-md shadow-sm">
+                                    "Hola Alejandra, buscamos un lugar italiano tranquilo para cenar a poca distancia. ¿Algo romántico quizás?"
+                                </div>
+</div>
+<!-- AI Message -->
+<div class="flex justify-start">
+<div class="bg-secondary-container/10 text-on-surface p-md rounded-[16px] rounded-bl-[4px] max-w-[85%] border border-secondary/5 shadow-sm space-y-sm">
+<p class="font-body-md">¡Buenas noches! Para una cena romántica italiana cerca, le recomiendo encarecidamente <strong>Luce e Gusto</strong>. Está a solo 6 minutos a pie y cuenta con un hermoso patio iluminado con velas.</p>
+<p class="font-body-md text-secondary font-bold">¿Le gustaría que reserve una mesa para dos a las 8:00 PM?</p>
+</div>
+</div>
+<!-- Chips -->
+<div class="flex gap-sm pt-sm overflow-x-auto pb-sm">
+<button class="whitespace-nowrap px-md py-xs rounded-full border border-secondary text-secondary text-label-sm font-bold hover:bg-primary-container hover:border-primary-container hover:text-white transition-all">Sí, por favor</button>
+<button class="whitespace-nowrap px-md py-xs rounded-full border border-secondary text-secondary text-label-sm font-bold hover:bg-primary-container hover:border-primary-container hover:text-white transition-all">Ver otras opciones</button>
+</div>
+</div>
+<div class="p-md border-t border-secondary/5 bg-white">
+<div class="bg-sky-50 rounded-full flex items-center px-md py-sm">
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface-variant font-body-md" placeholder="Pregunta a Alejandra cualquier cosa..." type="text"/>
+<button class="text-primary-container">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="px-gutter py-xl">
+<div class="max-w-7xl mx-auto bg-primary-container rounded-[40px] p-xl md:p-32 text-center text-white relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path d="M0 0 L100 0 L100 100 L0 100 Z" fill="url(#grid)"></path>
+<defs>
+<pattern height="10" id="grid" patternunits="userSpaceOnUse" width="10">
+<path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"></path>
+</pattern>
+</defs>
+</svg>
+</div>
+<div class="relative z-10 space-y-lg">
+<h2 class="font-display-lg text-display-lg">Transforme el Viaje del Huésped en su Hotel</h2>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto">Reduzca la presión en recepción y ofrezca una experiencia digital impecable para cada viajero. Despliegue Alejandra en menos de 48 horas.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-md pt-lg">
+<button class="bg-white text-primary-container px-xl py-md rounded-xl font-headline-md text-headline-md shadow-2xl hover:scale-105 transition-transform cursor-pointer">
+                            Reserve su Demo Gratuita
+                        </button>
+<button class="bg-on-primary-container text-white px-xl py-md rounded-xl font-headline-md text-headline-md hover:bg-on-primary-container/80 transition-all">
+                            Hablar con Ventas
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full rounded-t-xl">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-lg px-gutter py-xl max-w-7xl mx-auto">
+<div class="col-span-2 md:col-span-2 space-y-md">
+<div class="font-headline-md text-headline-md font-bold text-secondary dark:text-secondary-fixed">Alejandra Chat Bot</div>
+<p class="text-on-surface-variant font-body-md max-w-xs">La conserje de IA más avanzada del mundo para hostelería de lujo y estancias boutique.</p>
+</div>
+<div class="space-y-sm">
+<h5 class="font-label-lg text-label-lg font-bold text-secondary">Plataforma</h5>
+<ul class="space-y-xs">
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Agentes</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="formulario.html">Integraciones</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Funciones</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h5 class="font-label-lg text-label-lg font-bold text-secondary">Compañía</h5>
+<ul class="space-y-xs">
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Sobre nosotros</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Redes Sociales</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Historias de éxito</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h5 class="font-label-lg text-label-lg font-bold text-secondary">Soporte</h5>
+<ul class="space-y-xs">
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Solicitar Demo</a></li>
+<li><a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Contacto</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-gutter py-md border-t border-on-surface-variant/10 text-on-surface-variant font-body-md text-center md:text-left">
+            © 2024 Alejandra Chat Bot. Todos los derechos reservados.
+        </div>
+</footer>
+<script>
+        // Simple scroll behavior for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>
